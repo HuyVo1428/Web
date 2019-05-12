@@ -1,5 +1,6 @@
 #settingcontent {
-    background-color: Azure;
+    background-color: SlateGrey;
+    color: black;
 }
 
 #div_main {
@@ -7,20 +8,40 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: black;
+    z-index: -1;
+    text-align: center;
+}
+
+body {
+    background: no-repeat center fixed;
+    background-size: cover;
+}
+
+#divbirthday {
+    color: black;
+}
+
+#name {
+    color: black;
 }
 
 #main_content {
-    text-align: center;
+    font-size: 175%;
 }
 
 #main_content1 {
-    text-align: center;
+    font-size: 110%;
 }
 
 #main_content2 {
-    text-align: center;
+    font-size: 110%;
 }
 
 #main_content3 {
-    text-align: center;
+    font-size: 110%;
+}
+
+#main_content4 {
+    font-size: 110%;
 }

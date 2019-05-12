@@ -4,6 +4,10 @@ $(document).ready(function() {
     });
 });
 
+document.getElementById("name").defaultValue = "Huy Vo";
+document.getElementById("birthday").defaultValue = "1998-12-14";
+
+
 var bt1 = document.getElementById("btsetting")
 var flagButtonSetting = 1;
 
@@ -33,6 +37,7 @@ function startTime() {
     var hours = asiaTime.getHours();
     var minutes = asiaTime.getMinutes();
     var seconds = asiaTime.getSeconds();
+    month += 1;
 
     var result = year + " - " + month + " - " + day + "   " + hours + ":" + minutes + ":" + seconds + "   GMT+7";
 
@@ -43,31 +48,50 @@ var bdy = document.getElementById("bdy");
 var stime = startTime();
 
 var btdone = document.getElementById("btdone");
-
 btdone.onclick = function() {
+    if (document.getElementById("name").value.replace(/\s/g, "") === "") {
+        document.getElementById("name").value = "Huy Vo";
+    }
+
+    if (document.getElementById("birthday").value.replace(/\s/g, "") == "") {
+        document.getElementById("birthday").value = "1998-12-14";
+    }
+
     var name = document.getElementById("name").value;
     var sexmale = document.getElementById("sex1").checked;
     var birthday = document.getElementById("birthday").value;
 
+    console.log(birthday);
+
+    var asiaTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" });
+    asiaTime = new Date(asiaTime);
+
+
     var bd = new Date(birthday);
-    // var content = getMainContent1(sexmale, name);
+
+    if (bd > asiaTime) {
+        document.getElementById("birthday").value = "1998-12-14";
+    }
+
     document.getElementById("main_content1").innerHTML = getMainContent1(sexmale, name);
     document.getElementById("main_content2").innerHTML = getMainContent2(sexmale, bd);
     var mct = getMainContent3(bd);
 }
+
+btdone.click();
 
 function getB() {
     var asiaTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" });
     asiaTime = new Date(asiaTime);
     var hours = asiaTime.getHours();
 
-    if (hours > 3 && hours < 11) {
+    if (hours >= 3 && hours < 11) {
         return "buổi sáng";
     } else {
-        if (hours > 11 && hours < 13) {
+        if (hours >= 11 && hours < 13) {
             return "buổi trưa";
         } else {
-            if (hours > 13 && hours < 18) {
+            if (hours >= 13 && hours < 18) {
                 return "buổi chiều";
             } else {
                 return "buổi tối";
@@ -96,11 +120,11 @@ function getAge(date) {
     var bday = date.getDate();
 
     var result = nyear - byear;
-    if (nmonth < bmonth) {
+    if (nmonth > bmonth) {
         result--;
     } else {
         if (nmonth == bmonth) {
-            if (nday < bday) {
+            if (nday > bday) {
                 result--;
             }
         }
@@ -117,19 +141,19 @@ function getDay(date) {
 
     if (asiaTime.getMonth() > birthday.getMonth()) {
         birthday.setFullYear(asiaTime.getFullYear() + 1);
-        result = Math.round(Math.abs(asiaTime.getTime() - birthday.getTime()) / (60 * 60 * 24 * 1000)) - 1;
+        result = Math.round(Math.abs(asiaTime.getTime() - birthday.getTime()) / (60 * 60 * 24 * 1000));
     } else {
         if (asiaTime.getMonth() < birthday.getMonth()) {
             birthday.setFullYear(asiaTime.getFullYear());
-            result = Math.round(Math.abs(birthday.getTime() - asiaTime.getTime()) / (60 * 60 * 24 * 1000)) - 1;
+            result = Math.round(Math.abs(birthday.getTime() - asiaTime.getTime()) / (60 * 60 * 24 * 1000));
         } else {
             if (asiaTime.getDate() > birthday.getDate()) {
                 birthday.setFullYear(asiaTime.getFullYear() + 1);
-                result = Math.round(Math.abs(asiaTime.getTime() - birthday.getTime()) / (60 * 60 * 24 * 1000)) - 1;
+                result = Math.round(Math.abs(asiaTime.getTime() - birthday.getTime()) / (60 * 60 * 24 * 1000));
             } else {
                 if (asiaTime.getDate() < birthday.getDate()) {
                     birthday.setFullYear(asiaTime.getFullYear());
-                    result = Math.round(Math.abs(birthday.getTime() - asiaTime.getTime()) / (60 * 60 * 24 * 1000)) - 1;
+                    result = Math.round(Math.abs(birthday.getTime() - asiaTime.getTime()) / (60 * 60 * 24 * 1000));
                 } else {
                     result = 0;
                 }

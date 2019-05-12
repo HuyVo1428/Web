@@ -12,9 +12,13 @@
 <body id="bdy">
   <div class="container">
     <div>
-      <a id="btsetting" type="button" class="btn btn-primary collapsed">
-        Setting
-      </a>
+      <div class="row">
+        <div class="col-sm-3">
+            <a id="btsetting" type="button" class="btn btn-primary collapsed">
+                Setting
+            </a>        
+        </div>
+      </div>
       <div id="settingcontent" class="collapse">
         <div class="row">
           <div class="col-sm-3">
@@ -30,17 +34,24 @@
           </div>
           <div class="col-sm-3">
             Birthday:<br>
+            <div id="divbirthday">
             <input id="birthday" type="date"><br>
+            </div>
             <button id="btdone" class="btn btn-success collapsed">Done</button>
           </div>
         </div>
       </div>
-    </div>
-    <div id="div_main">
-      <p id="main_content"></p>
-      <p id="main_content1"></p>
-      <p id="main_content2"></p>
-      <p id="main_content3"></p>
+      <div id="div_main" class="h-100 row align-items-center">
+        <div class="col">
+          <hr>
+          <p id="main_content"></p>
+          <hr>
+          <p id="main_content1"></p>
+          <p id="main_content2"></p>
+          <p id="main_content3"></p>
+          <p id="main_content4"></p>    
+        </div>
+      </div>
     </div>
   </div>
 </div>
