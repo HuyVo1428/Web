@@ -1,0 +1,50 @@
+#settingcontent {
+    background-color: SlateGrey;
+    background: rgb(112, 128, 144, 0.95);
+    color: white;
+}
+
+#div_main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    background: rgb(0, 0, 0, 0.6);
+    color: white;
+    z-index: -1;
+    text-align: center;
+}
+
+body {
+    background: no-repeat center fixed;
+    background-size: cover;
+}
+
+#divbirthday {
+    color: black;
+}
+
+#name {
+    color: black;
+}
+
+#main_content {
+    font-size: 175%;
+}
+
+#main_content1 {
+    font-size: 110%;
+}
+
+#main_content2 {
+    font-size: 110%;
+}
+
+#main_content3 {
+    font-size: 110%;
+}
+
+#main_content4 {
+    font-size: 110%;
+}

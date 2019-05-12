@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="vi en">
+<head>
+<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task-3.2</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/formatsth.css">
+</head>
+<body  onload="startTime()">
+  <div class="container">
+  <h2><strong>Task 3.2</strong> Tìm hiểu và sử dụng một số khái niệm và lệnh cơ bản trong Javascript</h2>
+  <ul id="menutag" class="nav nav-tabs">
+    <li class="active"><a href="#home">Question 1</a></li>
+    <li><a href="#menu1">Question 2</a></li>
+    <li><a href="#menu2">Question 3</a></li>
+    <li><a href="#menu3">Question 4</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <div>
+        <h3>Question 1</h3>
+        <p>Những vị trí nào có thể đặt Javascript trong file HTML và dặt theo cú pháp nào? Nên đặt Javascript tại vị trí nào để có hiệu suất tốt nhất? Cho ví dụ minh họa.</p>
+      </div>
+      <div>
+        <div>
+          <h3 id=q1ans1>Javascript được đặt ở đâu?</h3>  
+          Javascript có thể được đặt trong 
+          <code>&lt;body&gt;</code>
+          hoặc
+          <code>&lt;head&gt;</code>
+          hoặc cả hai.
+        </div>
+        <div>
+          <h3 id=q1ans1>Javascript trong <code>&lt;body&gt;</code></h3>
+          <h4>Ví dụ</h4>
+          <pre><xmp>
+<!DOCTYPE html>
+<html>
+<body> 
+<h1>A Web Page</h1>
+<p id="demo">A Paragraph</p>
+<button type="button" onclick="myFunction()">Try it</button>
+<script>
+function myFunction() {
+document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+</script>
+</body>
+</html></xmp></pre>
+          Đặt tập lệnh ở dưới cùng của phần tử <code>&lt;body&gt;</code> sẽ cải thiện tốc độ hiển thị, vì việc giải thích tập lệnh làm chậm màn hình.
+        </div>
+        <div>
+          <h3 id=q1ans2>Javascript trong <code>&lt;head&gt;</code></h3>
+          <h4>Ví dụ</h4>
+          <pre><xmp>
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+</script>
+</head>
+<body>
+<h1>A Web Page</h1>
+<p id="demo">A Paragraph</p>
+<button type="button" onclick="myFunction()">Try it</button>
+</body>
+</html></xmp></pre>
+        </div>
+        <div>
+          <h3>External Javascript</h3>
+          <p>Javascript có thể được định nghĩa từ một file <code>.js</code> độc lập</p>
+          <h4>Ví dụ</h4>
+          <h5>Nội dung External File</h5>
+          <pre><xmp>
+function myFunction() {
+document.getElementById("demo").innerHTML = "Paragraph changed.";
+}</xmp></pre>
+          <h5>Định nghĩa file</h5>
+          <pre><xmp>
+<script src="myScript.js"></script></xmp></pre>
+          <p>Có thể định nghĩa file Javascript ở <code>&lt;head&gt;</code> hoặc <code>&lt;body&gt;</code> </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="menu1" class="tab-pane fade">
+      <div>
+        <h3>Question 2</h3>
+        <p>Trong Javascript có những kiểu dữ liệu nào? Làm thế nào để tạo một biến để lưu trữ giá trị tương ứng với những kiểu dữ liệu đó?.</p>
+      </div>
+      <div>
+        <h3>Javascript có kiểu dữ liệu động</h3>
+        <h4>Ví dụ</h4>
+        <pre><xmp>
+var x;           // x có kiểu undefined
+x = 5;           // Hiện tại x kiểu Number
+x = "John";      // Hiện tại x kiểu String</xmp></pre>
+      </div>
+      <div>
+        <h3>Kiểu <code>string</code></h3>
+        <p>Biến string được đặt trong dấu ngoặc (đơn hoặc kép)</p>
+        <h4>Ví dụ</h4>
+        <pre><xmp>
+var carName1 = "Volvo XC60";
+var carName2 = 'Volvo XC60';</xmp></pre>
+      </div>
+      <div>
+        <h3>Kiểu Numbers</h3>
+        <p>JavaScript chỉ có một kiểu dữ liệu số</p>
+        <h4>Ví dụ</h4>
+        <pre><xmp>
+  var x1 = 34.00;
+  var x2 = 34;</xmp></pre>
+      </div>
+      <div>
+        <h3>Kiểu <code>booleans</code></h3>
+        <p>Có hai giá trị <code>true</code> hoặc <code>false</code></p>
+        <h4>Ví dụ</h4>
+        <pre><xmp>
+var x = 5;
+var y = 5;
+var z = 6;
+(x == y)  //Returns true
+(x == z)  //Returns false</xmp></pre>
+      </div>
+      <div>
+        <h3>Kiểu <code>arrays</code></h4>
+        <h4>Ví dụ</h4>
+        <pre><xmp>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p>Array indexes are zero-based, which means the first item is [0].</p>
+
+<p id="demo"></p>
+
+<script>
+var cars = ["Saab","Volvo","BMW"];
+
+document.getElementById("demo").innerHTML = cars[0];
+</script>
+
+</body>
+</html></xmp></pre>
+      </div>
+      <div>
+        <h3>Kiểu <code>opject</code></h3>
+        <h4>Ví dụ</h4>
+        <pre><xmp>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Objects</h2>
+
+<p id="demo"></p>
+
+<script>
+var person = {
+  firstName : "John",
+  lastName  : "Doe",
+  age     : 50,
+  eyeColor  : "blue"
+};
+
+document.getElementById("demo").innerHTML =
+person.firstName + " is " + person.age + " years old.";
+</script>
+
+</body>
+</html></xmp></pre>
+      </div>
+      <div>
+        <h3>Kiểu <code>undefined</code></h3>
+        <p>Một biến chưa có giá trị thì có kiểu và giá trị là <code>undefined</code></p>
+        <h4>Ví dụ</h4>
+        <pre><xmp>
+var car;  //Giá trị của car và kiểu dữ liệu của car là undefined</xmp></pre>
+      </div>
+    </div>
+
+    <div id="menu2" class="tab-pane fade">
+      <div>
+        <h3>Question 3</h3>
+        <p>Làm thế nào để truy xuất (lấy giá trị) trong 1 thẻ HTML bất kỳ và gán vào 1 biến để trong Javascript theo ID, theo Class, theo Name, theo tên thẻ HTML và theo CSS Selector (ví dụ <code>.class</code>, <code>#id</code>)? Cho ví dụ minh họa.</p>
+      </div>
+      <div>
+        <h3>DOM Element trong javascript</h3>
+        <ul>
+          <li>Tìm thẻ HTML theo ID</li>
+          <li>Tìm thẻ HTML theo class</li>
+          <li>Tìm thẻ HTML theo tên thẻ</li>
+          <li>Tìm thẻ HTML theo selector</li>
+        </ul>
+        <h4>Ví dụ:</h4>
+        <pre><xmp>
+<html>
+<body>
+  
+  <input type="text" value="Freetuts.net" id="website" />
+  
+  <script language="javascript">
+    // Lấy thẻ input
+    var element = document.getElementById('website');
+    
+    // Lấy giá trị của thẻ input
+    document.write(element.value);
+  </script>
+</body>
+</html></xmp></pre>
+      </div>
+      <div>      
+        <h3>Tìm thẻ HTML theo class</h3>
+        <h4>Ví dụ:</h4>
+        <pre><xmp>
+<html>
+  <body>
+    
+    <input type="text" value="Freetuts.net" class="website"/>
+    
+    <script language="javascript">
+      // Lấy thẻ input
+      var element = document.getElementsByClassName('website');
+      
+      // Lấy giá trị của thẻ input
+      document.write(element[0].value);
+    </script>
+  </body>
+</html></xmp></pre>
+      </div>
+      <div>
+        <h3>Tìm thẻ HTML theo tên thẻ</h3>
+        <h4>Ví dụ:</h4>
+        <pre><xmp>
+<html>
+  <body>
+    
+    <input type="text" value="Freetuts.net"/>
+    
+    <script language="javascript">
+      // Lấy thẻ input
+      var element = document.getElementsByTagName('input');
+      
+      // Lấy giá trị của thẻ input
+      document.write(element[0].value);
+    </script>
+  </body>
+</html></xmp></pre>    
+      </div>
+      <div>
+        <h3>Tìm thẻ HTML theo selector</h3>
+        <h4>Ví dụ:</h4>
+        <pre><xmp>
+<html>
+  <body>
+    <input type="text" value="thẻ không cần lấy" class="website"/>
+    <div>
+        <input type="text" value="Thẻ Cần Lấy" class="website"/>
+        <input type="text" value="thẻ không cần lấy"/>
+    </div>
+    <script language="javascript">
+      // Lấy thẻ input
+      var element = document.querySelectorAll("div input.website");
+      
+      // Lấy giá trị của thẻ input
+      document.write('<h3>Nội dung thẻ cần lấy là: ' + element[0].value + '</h3>');
+    </script>
+  </body>
+</html></xmp></pre>    
+      </div>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <div>
+          <h3>Question 4</h3>
+          <p>Xác định các lệnh Javascript tương ứng để thực hiện các yêu cầu sau:</p>
+          <ul>
+            <li>Viết ghi chú trong Javascript (1 dòng, nhiều dòng)</li>
+            <li>Hiển thị thời gian hiện tại (từ năm đến giây theo múi giờ GMT+7 - Việt Nam)</li>
+            <li>Viết 1 hàm (function) để tính tổng giá trị của 2 số ngẫu nhiên từ 1 đến 100</li>
+            <li>Đổi màu nền hay hình nền của trang</li>
+          </ul>
+      </div>
+      <div>
+          <h3>Viết ghi chú trong Javascript</h3>
+          <h4>Viết ghi chú một dòng</h4>
+          <pre style="color: green">//Đây là ghi chú</pre>
+          <h4>Viết ghi chú nhiều dòng</h4>
+          <pre style="color: green">
+/*
+  The code below will change
+  the heading with id = "myH"
+  and the paragraph with id = "myP"
+  in my web page:
+  */</pre>    
+      </div>
+      <div>
+          <h3>Hiển thị thời gian hiện tại (Việt Nam)</h3>
+          <p id="question4_2"></p>
+          <h4>Source code</h4>
+          <pre><xmp>
+function startTime(){
+  var asiaTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Ho_Chi_Minh"});
+  asiaTime = new Date(asiaTime);
+
+  var year=asiaTime.getFullYear();
+  var month=asiaTime.getMonth();
+  var day=asiaTime.getDate();
+  var hours=asiaTime.getHours();
+  var minutes=asiaTime.getMinutes();
+  var seconds=asiaTime.getSeconds();
+
+  month++;
+  var result=year+" - " + month + " - " + day + "   " + hours + ":" + minutes + ":" + seconds + "   GMT+7";
+  
+  document.getElementById("question4_2").innerHTML = result;
+  var t = setTimeout(startTime, 500);
+}
+          </xmp></pre>
+      </div>
+      <div>
+        <h3>Viết 1 hàm (function) để tính tổng giá trị của 2 số ngẫu nhiên từ 1 đến 100.</h3>
+        <div>
+          <button onclick=addRanNum()>Add random</button>
+          <p id="question4_3"></p>
+        </div>
+        <h4>Source code</h4>
+        <pre><xmp>
+function addRanNum() {
+    var num1 = Math.floor(Math.random() * 100) + 1;
+    var num2 = Math.floor(Math.random() * 100) + 1;
+
+    var result = num1 + num2;
+
+    document.getElementById("question4_3").innerHTML = num1 + " " + "+" + " " + num2 + " " + "=" + " " + result;
+
+    var t = setTimeout(addRanNum, 5000);
+}</xmp></pre>
+      </div>
+      <div>
+        <h3>Đổi màu nền hay hình nền của trang</h3>
+        <button onclick=changeBackgroundImg()>Change Background</button>
+        <button onclick=changeColorBackground()>Change Background Color</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/action.js"></script>
+</body>
+</html>

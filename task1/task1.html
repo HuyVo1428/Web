@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="vi en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task-3.1</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/formatsth.css">
+</head>
+<body style="background-color: GhostWhite;">
+  <div id="dtitle" class="accordion">
+    <strong>Task 3.1</strong> Tìm hiểu và sử dụng một số khái niệm và lệnh cơ bản trong Javascript.
+  </div>
+  <div class="container" style="background-color:lavender">
+    <div class="btn-group btn-group-justified">
+      <a id="button1" type="button" class="btn btn-primary collapsed">
+      Question 1
+      </a>
+      <a id="button2" type="button" class="btn btn-success collapsed">
+      Question 2
+      </a>
+      <a id="button3" type="button" class="btn btn-info collapsed">
+      Question 3
+      </a>
+      <a id="button4" type="button" class="btn btn-warning collapsed">
+      Question 4
+      </a>
+    </div>
+    <div>
+      <div>
+        <div id="demo" class="collapse">
+          <div class="row">
+            <div class="col-sm-4" style="background-color:lavender;">
+            1. Có những cách đặt Javascript nào trong file HTML? Cho ví dụ minh họa
+            </div>
+            <div class="col-sm-8" style="background-color:lavenderblush;">
+              <h3 id=q1ans1>Javascript được đặt ở đâu?</h3>
+              
+              Javascript có thể được đặt trong 
+              <code>&lt;body&gt;</code>
+              hoặc
+              <code>&lt;head&gt;</code>
+              hoặc cả hai.
+              <h3 id=q1ans1>Javascript trong <code>&lt;body&gt;</code></h3>
+              <h4>Ví dụ</h4>
+              <pre><xmp>
+                <!DOCTYPE html>
+                <html>
+                <body> 
+                <h1>A Web Page</h1>
+                <p id="demo">A Paragraph</p>
+                <button type="button" onclick="myFunction()">Try it</button>
+                <script>
+                function myFunction() {
+                document.getElementById("demo").innerHTML = "Paragraph changed.";
+                }
+                </script>
+                </body>
+                </html>
+              </xmp></pre>
+              Đặt tập lệnh ở dưới cùng của phần tử <code>&lt;body&gt;</code> sẽ cải thiện tốc độ hiển thị, vì việc giải thích tập lệnh làm chậm màn hình.
+              <hr>
+              <h3 id=q1ans2>Javascript trong <code>&lt;head&gt;</code></h3>
+              <h4>Ví dụ</h4>
+              <pre><xmp>
+                  <!DOCTYPE html>
+                  <html>
+                  <head>
+                  <script>
+                  function myFunction() {
+                    document.getElementById("demo").innerHTML = "Paragraph changed.";
+                  }
+                  </script>
+                  </head>
+                  <body>
+                  <h1>A Web Page</h1>
+                  <p id="demo">A Paragraph</p>
+                  <button type="button" onclick="myFunction()">Try it</button>
+                  </body>
+                  </html>
+              </xmp></pre>
+              <hr>
+              <h3>External Javascript</h3>
+              <p>Javascript có thể được định nghĩa từ một file <code>.js</code> độc lập</p>
+              <h4>Ví dụ</h4>
+              <h5>Nội dung External File</h5>
+              <pre><xmp>
+                function myFunction() {
+                document.getElementById("demo").innerHTML = "Paragraph changed.";
+                }
+              </xmp></pre>
+              <h5>Định nghĩa file</h5>
+              <pre><xmp>
+              <script src="myScript.js"></script>
+              </xmp></pre>
+              <p>Có thể định nghĩa file Javascript ở <code>&lt;head&gt;</code> hoặc <code>&lt;body&gt;</code> </p>
+              </div>
+          </div>
+        </div>
+        <div id="demo1" class="collapse">
+          <div class="col-sm-4" style="background-color:lavender;">
+          <p>2. Có thể hiển thị dữ liệu từ Javascript với những cách nào? Cho ví dụ minh họa.</p>
+          </div>
+            <div class="col-sm-8" style="background-color:lavenderblush;">
+              <h3>Hiển thị dữ liệu từ Javascrjpt</h3>
+              <p>Có nhiều cách khác nhau để hiển thị dữ liệu:</p>
+              <ul>
+                <li>Dùng <code>innerHTML</code></li>
+                <li>Dùng <code>document.write()</code></li>
+                <li>Dùng <code>window.alert()</code></li>
+                <li>Dùng <code>console.log()</code></li>
+              </ul>
+              <h3>Dùng innerHTML</h3>
+              <p>Khi sử dụng document.getElementById().innerHTML, nội dung mà bạn muốn hiển thị sẽ được hiển thị bên trong một phần tử xác định.</p>
+              <h4>Ví dụ:</h4>
+              <pre>
+              <xmp>
+                <!DOCTYPE html>
+                <html>
+                <body>
+
+                <h1>My First Web Page</h1>
+                <p>My First Paragraph</p>
+
+                <p id="demo"></p>
+
+                <script>
+                document.getElementById("demo").innerHTML = 5 + 6;
+                </script>
+
+                </body>
+                </html>
+              </xmp>
+              </pre>
+              <h3>Dùng document.write()</h3>
+              <p>Khi sử dụng document.write(), nội dung mà bạn muốn hiển thị sẽ được hiển thị ngay đúng vị trí mà nó được đặt trong trang web.</p>
+              <h4>Ví dụ:</h4>
+              <pre>
+              <xmp>
+                <!DOCTYPE html>
+                <html>
+                <body>
+
+                <h1>My First Web Page</h1>
+                <p>My first paragraph.</p>
+
+                <script>
+                document.write(5 + 6);
+                </script>
+
+                </body>
+                </html>
+              </xmp>
+              </pre>
+              <h3>Dùng window.alert()</h3>
+              <p>Khi sử dụng alert(), nội dung mà bạn muốn hiển thị sẽ được hiển thị bên trong một hộp thoại thông báo</p>
+              <h4>Ví dụ:</h4>
+              <pre>
+              <xmp>
+                <!DOCTYPE html>
+                <html>
+                <body>
+
+                <h1>My First Web Page</h1>
+                <p>My first paragraph.</p>
+
+                <script>
+                window.alert(5 + 6);
+                </script>
+
+                </body>
+                </html>
+              </xmp>
+              </pre>
+              <h3>Dùng console.log()</h3>
+              <p>Nhằm mục đích debug</p>
+              <h4>Ví dụ:</h4>
+              <pre>
+              <xmp>
+                <!DOCTYPE html>
+                <html>
+                <body>
+
+                <script>
+                console.log(5 + 6);
+                </script>
+
+                </body>
+                </html>
+              </xmp>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div id="demo2" class="collapse">
+          <div class="col-sm-4" style="background-color:lavender;">
+          <p>3. Làm thế nào để truy xuất (lấy giá trị) 1 thẻ HTML bất kỳ theo ID, theo Class, theo Name, theo tên thẻ HTML và theo CSS Selector? Cho ví dụ minh họa</p>
+          </div>
+            <div class="col-sm-8" style="background-color:lavenderblush;">
+              <h3>DOM Element trong javascript</h3>
+              <ul>
+                <li>Tìm thẻ HTML theo ID</li>
+                <li>Tìm thẻ HTML theo class</li>
+                <li>Tìm thẻ HTML theo tên thẻ</li>
+                <li>Tìm thẻ HTML theo selector</li>
+              </ul>
+              <h4>Ví dụ:</h4>
+              <pre>
+              <xmp>
+                <html>
+                <body>
+                  
+                  <input type="text" value="Freetuts.net" id="website" />
+                  
+                  <script language="javascript">
+                    // Lấy thẻ input
+                    var element = document.getElementById('website');
+                    
+                    // Lấy giá trị của thẻ input
+                    document.write(element.value);
+                  </script>
+                </body>
+              </html>
+              </xmp>
+              </pre>
+              <h3>Tìm thẻ HTML theo class</h3>
+              <h4>Ví dụ:</h4>
+              <pre>
+              <xmp>
+              <html>
+                <body>
+                  
+                  <input type="text" value="Freetuts.net" class="website"/>
+                  
+                  <script language="javascript">
+                    // Lấy thẻ input
+                    var element = document.getElementsByClassName('website');
+                    
+                    // Lấy giá trị của thẻ input
+                    document.write(element[0].value);
+                  </script>
+                </body>
+              </html>
+              </xmp>
+              </pre>
+              <h3>Tìm thẻ HTML theo tên thẻ</h3>
+              <h4>Ví dụ:</h4>
+              <pre>
+              <xmp>
+              <html>
+                <body>
+                  
+                  <input type="text" value="Freetuts.net"/>
+                  
+                  <script language="javascript">
+                    // Lấy thẻ input
+                    var element = document.getElementsByTagName('input');
+                    
+                    // Lấy giá trị của thẻ input
+                    document.write(element[0].value);
+                  </script>
+                </body>
+              </html>
+              </xmp>
+              </pre>
+              <h3>Tìm thẻ HTML theo selector</h3>
+              <h4>Ví dụ:</h4>
+              <pre>
+              <xmp>
+              <html>
+                <body>
+                  <input type="text" value="thẻ không cần lấy" class="website"/>
+                  <div>
+                      <input type="text" value="Thẻ Cần Lấy" class="website"/>
+                      <input type="text" value="thẻ không cần lấy"/>
+                  </div>
+                  <script language="javascript">
+                    // Lấy thẻ input
+                    var element = document.querySelectorAll("div input.website");
+                    
+                    // Lấy giá trị của thẻ input
+                    document.write('<h3>Nội dung thẻ cần lấy là: ' + element[0].value + '</h3>');
+                  </script>
+                </body>
+              </html>
+              </xmp>
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div id="demo3" class="collapse">
+            <div class="col-sm-4" style="background-color:lavender;">
+            4.Xác định các lệnh Javascript tương ứng để thực hiện các yêu cầu sau:
+            <ul>
+              <li>Hiển thị ngày tháng và thời gian hiện tại.</li>
+              <li>Thay đổi nội dung trong 1 thẻ HTML đang có></li>
+              <li>Hiển thị một số ngẫu nhiên (random) từ 1 đến 1000.</li>
+              <li>Cộng, trừ, nhân, chia, chia lấy phần dư.</li>
+            </ul>
+            </div>
+            <div class="col-sm-8" style="background-color:lavenderblush;">
+            <h3>Hiển thị ngày tháng và thời gian hiện tại</h3>
+            <ul>
+              <li><code>getFullYear()</code>: Lấy năm</li>
+              <li><code>getMonth()</code>: Lấy tháng</li>
+              <li><code>getDate()</code>: Lấy ngày</li>
+              <li><code>getHours()</code>: Lấy giờ</li>
+              <li><code>getMinutes()</code>: Lấy phút</li>
+              <li><code>getSeconds</code>: Lấy giây</li>
+              <li><code>getMilliseconds()</code>: Lấy millisecond</li>
+              <li><code>getTime()</code>: Lấy thời gian millisecod từ 1-1-1970</li>
+              <li><code>getDay()</code>: Lấy ngày trong tuần (0-6)</li>
+            </ul>
+            <h3>Thay đổi nội dung trong 1 thẻ HTML đang có</h3>
+            
+            <h3>Hiển thị một số ngẫu nhiên từ 1 đến 1000</h3>
+            <p><code>Math.floor(Math.random() * 999) + 1</code></p>
+            <h3>Cộng, trừ, nhân, chia, chia lấy phần dư</h3>
+            <p>Các phép toán lần lượt: <code>+ - * / %</code></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/action.js"></script>
+
+</body>
+</html>
